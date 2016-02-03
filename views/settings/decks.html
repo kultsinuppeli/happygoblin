@@ -1,0 +1,26 @@
+{{response.files.append(URL('static','js/settings.js'))}}
+{{response.files.append(URL('static','css/settings.css'))}}
+{{extend 'layout.html'}}
+
+<table>
+  <tr><th>Decks</td><td></td></tr>
+{{for deck in decks:}}
+  <tr><td>{{=deck["name"]}}</td><td></td>
+  <td><select id="select-{{=deck["id"]}}" class="merge">
+  {{for mergedeck in decks:}}
+    {{if mergedeck != deck:}}
+      <option value="{{=mergedeck["id"]}}">{{=mergedeck["name"]}}</option>
+      {{pass}}
+    {{pass}}
+    </select><button id="merge-{{=deck["id"]}}" class="merge">Merge</button>
+    </td>
+  {{pass}}
+  </tr>
+</table>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+  jQuery("button.merge").bind("click", merge_deck);
+});
+</script>
+

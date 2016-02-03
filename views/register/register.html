@@ -1,0 +1,23 @@
+{{response.files.append(URL('static','js/register.js'))}}
+{{response.files.append(URL('static','css/register.css'))}}
+
+{{extend 'layout.html'}}
+
+<div id="namediv">
+<h2>First time here?</h3><span class="info">Choose a username</span>
+<input type="text" id="username">
+<button id="confirm" class="badbutton">Register</button>
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+  jQuery("input#username").bind("input", function () {
+    check_name("register/check_username", "username", "confirm");
+  });
+  jQuery("button#confirm").bind("click", function () {
+    var data = {playername: jQuery("input#username").val()};
+    register("register/create_user", "confirm", data, "../");
+  });
+});
+</script>
+
+

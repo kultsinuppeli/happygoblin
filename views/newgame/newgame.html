@@ -1,0 +1,47 @@
+{{response.files.append(URL('static','js/newgame.js'))}}
+{{response.files.append(URL('static','css/newgame.css'))}}
+{{extend 'layout.html'}}
+
+{{=formgame.custom.begin}}
+<div id="around">
+<div id="gamechoice">
+<table>
+<tr><td><span class="info">Game type:</span></td><td>{{=formgame.custom.widget.gametype}}</td></tr>
+<tr><td><span class="info">Players:</span></td><td>{{=formgame.custom.widget.players}}</td></tr>
+<tr><td><span class="info">Format:</span></td><td>{{=formgame.custom.widget.format}}</td></tr>
+<tr><td><span class="info">Tags:</span></td><td>{{=formgame.custom.widget.tags}}</td></tr>
+</table>
+<div id="recenttags">
+{{for tag in tags:}}
+<span class="quicktag">{{=tag}}</span>
+{{pass}}
+</div>
+<input type="hidden" id="player1" name="player1" value="{{=guestplayer["id"]}}">
+<input type="hidden" id="player2" name="player2" value="{{=guestplayer["id"]}}">
+<input type="hidden" id="player3" name="player3" value="{{=guestplayer["id"]}}">
+<input type="hidden" id="player4" name="player4" value="{{=guestplayer["id"]}}">
+<input type="hidden" id="player5" name="player5" value="{{=guestplayer["id"]}}">
+<input type="hidden" id="player6" name="player6" value="{{=guestplayer["id"]}}">
+<br>
+<div id="playerlist" class="dragto draginactive">
+{{for player in playerlist:}}
+  <div id="player-{{=player["id"]}}" class="playerinput dragfrom" draggable="true">{{=player["name"]}}<div class="quickadd plus" id="add-{{=player["id"]}}"></div></div>
+{{pass}}
+</div>
+<div id="playerchoice" class="basic2p">
+    <div class="playerdiv" id="p1basic2p"><div class="dragto draginactive" id="playerslot1">Guest (Player 1)</div></div>
+    <div class="playerdiv" id="p2basic2p"><div class="dragto draginactive" id="playerslot2">Guest (Player 2)</div></div>
+    <div class="playerdiv" id="p3basic2p"><div class="dragto draginactive" id="playerslot3">Guest (Player 3)</div></div>
+    <div class="playerdiv" id="p4basic2p"><div class="dragto draginactive" id="playerslot4">Guest (Player 4)</div></div>
+    <div class="playerdiv" id="p5basic2p"><div class="dragto draginactive" id="playerslot5">Guest (Player 5)</div></div>
+    <div class="playerdiv" id="p6basic2p"><div class="dragto draginactive" id="playerslot6">Guest (Player 6)</div></div>
+</div>
+</div>
+
+<br>
+{{=formgame.custom.submit}}
+{{=formgame.custom.end}}
+</div>
+<script type="text/javascript">var guestplayer="{{=guestplayer["id"]}}"; var players=0;</script>
+
+

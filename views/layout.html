@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  {{if request.user_agent().is_mobile:}}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{pass}}
+
+  <title>
+   {{=response.title or request.application}}
+  </title>
+  {{response.files.append("http://code.cdn.mozilla.net/fonts/fira.css")}}
+  {{response.files.append(URL('static','plugin_layouts/superfish.js'))}}
+  {{response.files.append(URL(request.application,'static','css/bootstrap.min.css'))}}
+  {{response.files.append(URL('static','js/bootstrap.min.js'))}}
+  {{response.files.append(URL('static','js/bootbox.min.js'))}}
+  {{response.files.append(URL('static','js/menu.js'))}}
+  {{response.files.append(URL(request.application,'static','css/happygoblin.css'))}}
+  {{include 'web2py_ajax.html'}}
+  <style>
+ul.web2py-menu-vertical { width: 150px; position: relative; top:1em; left:1em;  z-index:30; border:0; margin:0; padding: 0; list-style: none; text-decoration: none;}
+ul.web2py-menu-vertical li { margin:0; padding:0; border:0; width: 150px; background: black; text-align:left;}
+ul.web2py-menu-vertical li a { margin:0; padding: 1px 3px 1px 3px; border:0; width: 144px; color: white; font-size:12px;}
+div.flash { position: fixed; float: right; padding: 10px; top: 10px; right: 30px; opacity: 0.75; margin: 10px 10px 10px 10px; text-align: center; clear: both; color: #fff; font-size: 11pt; text-align: center; vertical-align: middle; cursor: pointer; background: black; border: 2px solid #fff; -moz-border-radius: 5px; -webkit-border-radius: 5px; z-index: 2; } 
+div.error { background-color: red; color: white; padding: 3px; }
+.auth_navbar { text-align:right; z-index:20; position: absolute; top: 2px; right:30px; border:0; padding:0 }
+
+
+  </style>
+  <script type="text/javascript">
+  {{if (request.env.path_info != None and
+       request.env.path_info.startswith("/" + request.application)):
+      app_prefix ="/" + request.application + "/"
+    else:
+      app_prefix = "/"
+      pass}}
+   var app_prefix = "{{=app_prefix}}";
+  </script>
+ </head>
+ <body>
+
+  {{if request.user_agent().is_mobile:}}
+  <div id="mobilecontainer">
+   <div id="mobilemenu">
+  {{else:}}
+   <div id="container">
+   <div id="menu">
+  {{pass}}
+    {{if session.playerid != None:}}
+    {{=MENU(response.menu, _class='web2py-menu')}}
+
+    {{if len(response.submenu) > 0: }}
+       <div id="submenu">
+       {{=MENU(response.submenu,_class='web2py-menu')}}
+       </div>
+     {{else:}}
+       <div id="submenu">&nbsp;</div>
+       {{pass}}
+
+    <div id="playgroup-menu">
+    Playgroup:
+      <select id="playgroupselect">
+        {{for playgroup in session.all_playgroups:
+          if playgroup['id'] == session.playgroup['id']: }}
+            <option value="{{=playgroup['id']}}" selected>{{=playgroup['name']}}</option>
+          {{else:}}
+            <option value="{{=playgroup['id']}}">{{=playgroup['name']}}</option>
+            {{pass}}
+        {{pass}}
+      </select>  
+    </div>
+    {{else:}}
+      {{=MENU(response.loginmenu,_class='web2py-menu')}}
+      {{pass}}
+    <script>
+      jQuery(document).ready(function(){jQuery('ul.web2py-menu').superfish({delay:400});});
+    </script>   
+   
+     
+   </div>
+   <div id="main">
+    <!-- <div class="flash">{{=response.flash or ''}}</div> -->
+    {{include}} 
+   </div>
+
+   <div id="footer">
+    <span id="footerspan"><a href="{{=URL('default', 'about')}}">About</a> - <a href="{{=URL('default', 'contact')}}">Contact</a></span>
+   </div>
+  </div>
+ </body>
+</html>
+

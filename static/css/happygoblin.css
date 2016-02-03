@@ -1,0 +1,259 @@
+body  {
+    /* Background pattern from subtlepatterns.com */
+background-image: url("../images/satinweave.png");
+margin: 0;
+}
+
+#container { 
+width: 780px;
+margin: 0 auto;
+background: #FFFFFF;
+}
+
+#mobilecontainer { 
+width: 99%;
+margin: 0 auto;
+background: #FFFFFF;
+}
+
+#header { 
+padding: 45px 0 20px 40px;
+} 
+
+#header a {
+color: #121212;
+text-decoration: none;
+font-size: 30px; 
+font-family: "Fira Sans";
+}
+
+#menu {
+background-color: #D70000; 
+background-image: url("../images/happybanner.png");
+background-repeat: no-repeat;
+background-position: center;
+color: #AAAAAA;
+padding: 6px 0 6px 40px;
+line-height: 30px;
+}
+
+#mobilemenu {
+background-color: #D70000; 
+background-image: url("../images/happybanner.png");
+background-repeat: no-repeat;
+background-position: center;
+color: #AAAAAA;
+padding: 6px 0 6px 6px;
+line-height: 30px;
+}
+
+div#menu:after, div#mobilemenu:after {
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both; 
+}
+
+#menu a, #mobilemenu a {
+color: #EEEEEE;
+text-decoration: none; 
+font-size: 14px; 
+font-family: "Fira Sans";
+}
+
+#menu a:hover, #mobilemenu a:hover {
+color: #ecf2f3;
+}
+
+h1 {
+margin: 0px;
+color: #D70000; 
+font-size:24px; 
+font-family: "Fira Sans"; 
+font-weight: normal;
+}
+
+h2 {
+color: #444444;
+font-size: 15px; 
+margin: 0px 0 5px 0;
+}
+
+#main { 
+margin: 0 0 0 10px;
+padding: 15px 0px 30px 0;
+color: #444444;
+font-family: "Fira Sans";
+font-size: 13px; 
+line-height: 18px;
+text-align: justify;
+} 
+
+#main a {
+color: #3b7687; 
+text-decoration: none;
+}
+
+#main a:hover {
+color: #444444;
+}
+
+#footer {
+padding: 6px 40px 6px 40px;
+background: #d6d6d6; 
+font-family: "Fira Sans";
+color: #444444;
+font-size: 11px;
+text-align: center;
+}
+
+#footer a {
+text-decoration: none; 
+color: #262626;
+}
+
+#footer a:hover {
+color: #666666;
+}
+
+#footerspan {
+}
+
+.separator {
+font-size:11px;
+color:#FFFFFF;
+}
+
+ul.web2py-menu {
+ margin-left: 0;
+ padding-left: 0;
+ display: inline;
+ } 
+
+ul.web2py-menu li {
+ margin-left: 0;
+ padding: 3px 15px;
+ border-left: 1px solid #000;
+ list-style: none;
+ display: inline;
+ }
+ 
+  
+ul.web2py-menu li.web2py-menu-first {
+ margin-left: 0;
+ border-left: none;
+ list-style: none;
+ display: inline;
+ }
+
+ button {
+    background-color: #FF3A3A;
+    color: #EEEEEE;
+    border-radius: 4px;
+    border: 1px solid #888888;
+    margin-left: 10px;
+ }  
+
+button.badbutton {
+  background-color: #EEEEEE;
+  color: #DDDDDD;
+  border: 1px solid #CCCCCC;
+}
+
+input[type=submit] {
+    background-color: #FF3A3A;
+    color: #EEEEEE;
+    border: 2px solid #888888;
+    border-radius: 4px;
+ }
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #EBEBEB;
+ }
+
+tr {
+    height: 25px;
+}
+
+th {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+td {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+span.loser {
+    margin-right: 5px;
+    background-color: #DD3A3A;
+    border-radius: 4px;
+    color: #EEEEEE;
+    padding: 0px 2px;
+    text-align: center;
+}
+span.winner {
+    margin-right: 5px;
+    background-color: #1ABB1A;
+    border-radius: 4px;
+    color: #EEEEEE;
+    padding: 0px 2px;
+    text-align: center;
+}
+
+div#playgroup-menu {
+    float: right;
+    top: 5px;
+    margin-right: 10px;
+}
+
+select#playgroupselect {
+    width: 150px;
+}
+
+div.plus {
+    background-image: url("../images/plus.png");
+    background-repeat: no-repeat;
+    background-position: center 35%;
+}
+
+div.minus {
+    background-image: url("../images/minus.png");
+    background-repeat: no-repeat;
+    background-position: center 35%;
+}
+
+span.info {
+    font-weight: bold; 
+}
+
+div.tab {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    background-color: #CFCCCC;
+    float: left;
+    margin-right: 4px;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+div#tabs:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+div.activetab {
+    background-color: #F7F5F5;
+}
+
+div.tabcontent {
+    padding: 10px;
+    background-color: #F7F5F5;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 4px;
+}

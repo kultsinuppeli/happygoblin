@@ -1,0 +1,102 @@
+{{response.files.append(URL('static','js/ingame.js'))}}
+{{if request.user_agent().is_mobile:}}
+{{response.files.append(URL('static','css/ingame-mob.css'))}}
+{{else:}}
+{{response.files.append(URL('static','css/ingame.css'))}}
+{{pass}}
+{{extend 'layout.html'}}
+
+<div id="players">
+  <div class="player-game" id="ig-p1basic2p">
+    <p class="playername" id="name-p1"></p>
+    <p class="playername-2-headed" id="name-p2-2-headed"></p>
+    <input type="text" placeholder="Deck.." class="deckname" id="p1deck">
+    <input type="text" placeholder="Deck.." class="deckname-2-headed" id="p2deck-2headed">
+    <div class="dmg-outer" id="outer-life-p1">
+      <button class="minus1" id="p1life-minus1">-</button>
+      <button class="minus5" id="p1life-minus5">-5</button>
+      <div class="dmgtype lifetotal" id="p1life"></div>
+      <button class="plus1" id="p1life-plus1">+</button>
+      <button class="plus5" id="p1life-plus5">+5</button>
+    </div>
+  </div>
+  <div class="player-game" id="ig-p2basic2p">
+    <p class="playername" id="name-p2"></p>
+    <input type="text" placeholder="Deck.." class="deckname" id="p2deck">
+    <div class="dmg-outer" id="outer-life-p2">
+      <button class="minus1" id="p2life-minus1">-</button>
+      <button class="minus5" id="p2life-minus5">-5</button>
+      <div class="dmgtype lifetotal" id="p2life"></div>
+      <button class="plus1" id="p2life-plus1">+</button>
+      <button class="plus5" id="p2life-plus5">+5</button>
+    </div>
+  </div>
+  <div class="player-game" id="ig-p3basic2p">
+    <p class="playername" id="name-p3"></p>
+    <p class="playername-2-headed" id="name-p4-2-headed"></p>
+    <input type="text" placeholder="Deck.." class="deckname" id="p3deck">
+    <input placeholder="Deck.." class="deckname-2-headed" type=text id="p4deck-2headed">
+    <div class="dmg-outer" id="outer-life-p3">
+      <button class="minus1" id="p3life-minus1">-</button>
+      <button class="minus5" id="p3life-minus5">-5</button>
+      <div class="dmgtype lifetotal" id="p3life"></div>
+      <button class="plus1" id="p3life-plus1">+</button>
+      <button class="plus5" id="p3life-plus5">+5</button>
+    </div>
+  </div>
+  <div class="player-game" id="ig-p4basic2p">
+    <p class="playername" id="name-p4"></p>
+    <input type="text" placeholder="Deck.." class="deckname" id="p4deck">
+    <div class="dmg-outer" id="outer-life-p4">
+      <button class="minus1" id="p4life-minus1">-</button>
+      <button class="minus5" id="p4life-minus5">-5</button>
+      <div class="dmgtype lifetotal" id="p4life"></div>
+      <button class="plus1" id="p4life-plus1">+</button>
+      <button class="plus5" id="p4life-plus5">+5</button>
+    </div>
+  </div>
+  <div class="player-game" id="ig-p5basic2p">
+    <p class="playername" id="name-p5"></p>
+    <p class="playername-2-headed" id="name-p6-2-headed"></p>
+    <input type="text" placeholder="Deck.." class="deckname" id="p5deck">
+    <input type="text" placeholder="Deck.." class="deckname-2-headed" id="p6deck-2headed">
+    <div class="dmg-outer" id="outer-life-p5">
+      <button class="minus1" id="p5life-minus1">-</button>
+      <button class="minus5" id="p5life-minus5">-5</button>
+      <div class="dmgtype lifetotal" id="p5life"></div>
+      <button class="plus1" id="p5life-plus1">+</button>
+      <button class="plus5" id="p5life-plus5">+5</button>
+    </div>
+  </div>
+  <div class="player-game" id="ig-p6basic2p">
+    <p class="playername" id="name-p6"></p>
+    <input type="text" placeholder="Deck.." class="deckname" id="p6deck">
+    <div class="dmg-outer" id="outer-life-p6">
+      <button class="minus1" id="p6life-minus1">-</button>
+      <button class="minus5" id="p6life-minus5">-5</button>
+      <div class="dmgtype lifetotal" id="p6life"></div>
+      <button class="plus1" id="p6life-plus1">+</button>
+      <button class="plus5" id="p6life-plus5">+5</button>
+    </div>
+  </div>
+  <div id="buttons">
+    <button id="ig-discard">Discard</button>
+    <button id="ig-finish">Finish</button>
+    {{if request.user_agent().is_mobile:}}
+    <button id="ig-flip" hidden="true">Flip player 1</button>
+    {{pass}}
+    <div id="message">
+    </div>
+  </div>
+</div>
+{{if game_id != None:
+=SCRIPT('var game_id=' + game_id, _type='text/javascript')
+=SCRIPT('var gametype=""', _type='text/javascript')
+=SCRIPT('var players=0', _type='text/javascript')
+=SCRIPT('var last_update_id=0', _type='text/javascript')
+=SCRIPT('var update_info=new Object()', _type='text/javascript')
+=SCRIPT('var timeout_id=0', _type='text/javascript')
+=SCRIPT('var websocket_server="' + websocket_server + '";', _type='text/javascript')
+pass}}
+
+

@@ -1,0 +1,104 @@
+{{response.files.append(URL('static','js/stats.js'))}}
+{{response.files.append(URL('static','css/stats.css'))}}
+{{response.files.append(URL('static','js/chart.min.js'))}}
+{{response.files.append(URL('static','js/utils.js'))}}
+{{response.files.append(URL('static','js/jquery.timeago.js'))}}
+
+{{extend 'layout.html'}}
+
+<div id="filtermenu">
+     <div class="toggle minus" id="toggle-search"></div>
+     <h2>Search</h2>
+</div>
+<div id="filterdiv">
+    <form id="filterform">
+        <div id="playerdiv">
+            <span class="info">Players:</span><br>
+            <select id="playerselect" name="players" multiple="multiple" size="6">
+                {{for player in session.groupplayers:}}
+                    <option value="{{=player["id"]}}">{{=player["name"]}}</option>
+                    {{pass}}
+            </select>
+        </div>
+        <div id="deckdiv">
+            <span class="info">Decks:</span><br>
+            <select id="deckselect" name="decks" multiple="multiple" size="6">
+                {{for deck in decks:}}
+                    <option value="{{=deck["id"]}}">{{=deck["name"]}}</option>
+                    {{pass}}
+            </select>
+        </div>
+        <br>
+        <div id="gameinfodiv">
+            <span class="info">Format:</span>
+            <span id="formatboxes">
+                <input name="format" type="checkbox" value="Casual" /> Casual
+                <input name="format" type="checkbox" value="Standard" /> Standard
+                <input name="format" type="checkbox" value="Block" /> Block
+                <input name="format" type="checkbox" value="Modern" /> Modern
+                <input name="format" type="checkbox" value="Legacy" /> Legacy
+                <input name="format" type="checkbox" value="Vintage" /> Vintage
+                <input name="format" type="checkbox" value="Commander" /> Commander
+                <input name="format" type="checkbox" value="Draft" /> Draft
+                <input name="format" type="checkbox" value="Sealed" /> Sealed
+            </span>
+            <br><span class="info">Gametype:</span>
+            <span id="gameboxes">
+                <input name="gametype" type="checkbox" value="Basic" /> Basic
+                <input name="gametype" type="checkbox" value="2-headed" /> 2-headed
+                <input name="gametype" type="checkbox" value="Star" /> Star
+                <input name="gametype" type="checkbox" value="Emperor" /> Emperor
+                <input name="gametype" type="checkbox" value="Archenemy" /> Archenemy
+            </span>
+            <br><span class="info">Min players:</span>
+            <select name="minplayers" id="minplayerselect">
+                <option value=""></option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <span class="info">Max players:</span>
+            <select name="maxplayers" id="maxplayerselect">
+                <option value=""></option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <br><span class="info">After:</span>
+            <input id="datestart"/>
+            <span class="info">Before:</span>
+            <input id="dateend"/>
+            <br><span class="info">Tags:</span>
+            <input id="tags"/>
+        </div>
+        <br>
+        <button type="button" id="filter">Stats</button>
+    </form>
+</div>
+<div id="gamelistmenu">
+    <div class="toggle plus" id="toggle-gamelist"></div>
+    <h2>Games</h2>
+</div>
+<div id="gamelistdiv" hidden="true">
+</div>
+<div id="results">
+
+    <div id="tabs">
+        <div id="playertab" class="tab activetab">
+            By Players
+        </div>
+        <div id="decktab" class="tab">
+            By Decks
+        </div>
+    </div>
+    <div id="prints" class="tabcontent">
+        <div id="playerprints">
+        </div>
+        <div id="deckprints" hidden="true">
+        </div>
+    </div>
+</div>

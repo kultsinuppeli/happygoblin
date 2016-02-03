@@ -1,0 +1,134 @@
+{{response.files.append(URL('static','js/settings.js'))}}
+{{response.files.append(URL('static','css/settings.css'))}}
+{{response.files.append(URL('static','js/register.js'))}}
+{{extend 'layout.html'}}
+
+<script type="text/javascript">
+  var invitelist=[];
+</script>
+<div id="create"><h2>Create playgroup</h2>
+  Group name <input type="text" id="groupname">
+  <button id="confirm-group" class="badbutton">Create</button>
+</div>
+<div id="invites">
+{{if len(invites) > 0:}}
+    <h2>Invites</h2>
+    <table>
+    {{for group in invites:}}
+  <tr><td>{{=group["name"]}}</td><td><button id='join-{{=group["id"]}}' class="goodbutton joinbutton">Join</button></td>
+    {{pass}}
+  </table>
+  {{pass}}
+</div>
+
+<h2>Your playgroups</h2>
+<div id="tabs">
+
+{{currentgroup = session.playgroup["id"]
+  for playgroup in playgroups:
+    if currentgroup == playgroup["id"]:}}
+  <div id="tab-{{=playgroup['id']}}" class="tab activetab">{{=playgroup['name']}}</div>
+  {{else:}}
+  <div id="tab-{{=playgroup['id']}}" class="tab">{{=playgroup['name']}}</div>
+    {{pass}}
+  {{pass}}
+</div>
+{{for playgroup in playgroups:
+    if currentgroup == playgroup["id"]:}}
+    <div id="playgroup-{{=playgroup['id']}}" class="tabcontent">
+    {{else:}}
+    <div id="playgroup-{{=playgroup['id']}}" hidden="true" class="tabcontent">
+      {{pass}}
+
+  <h2>Manage players</h2>
+  <table class="table-striped">
+  {{if playgroup["admin"]:}}
+    <tr><th>Name</th><th>Admin</th><th>Extra</th></tr>
+  {{else:}}
+    <tr><th>Name</th><th>Admin</th></tr>
+    {{pass}}
+
+  {{for player in playgroup["linked_players"]:}}
+    <tr><td class="linkedplayer">{{=player["name"]}}</td><td>
+    <input type="checkbox" id="admin-{{=playgroup["id"]}}-{{=player["id"]}}" class="admincheckbox" 
+    {{if player["role"] == "admin":}}
+       checked="yes"
+    {{pass}}
+    {{if not playgroup["admin"] or player["id"] == session.playerid:}}
+       disabled="yes"
+    {{pass}}
+    >
+
+    </td><td></td></tr>
+  {{pass}}
+
+  {{for player in playgroup["unlinked_players"]:}}
+    <tr><td class="unlinkedplayer">{{=player["name"]}}</td><td></td>
+    {{if playgroup["admin"]:}}
+      <td>
+      <select id="select-{{=playgroup["id"]}}-{{=player["id"]}}" class="merge">
+      {{for linkplayer in playgroup["linked_players"]:}}
+        <option value="{{=linkplayer["id"]}}">{{=linkplayer["name"]}}</option>
+      {{pass}}
+      </select><button id="merge-{{=playgroup["id"]}}-{{=player["id"]}}" class="merge">Merge</button>
+      </td>
+    {{pass}}
+    </tr>
+  {{pass}}
+
+  </table>
+  {{if playgroup["admin"]:}}
+    <h2>Invite players with accounts</h2>
+    <table>
+    <tr><td><input id="inviteinput-{{=playgroup["id"]}}" class="invite"></td><td><button id="invitebutton-{{=playgroup["id"]}}" class="invitebutton badbutton">Invite</button></td></tr>
+    {{if len(playgroup["invited"]) > 0:}}
+      <tr><th>Invited players</th><th></th></tr>
+      {{for player in playgroup["invited"]:}}
+        <tr><td class="uninvite">{{=player["name"]}}<td><button id="uninvite-{{=playgroup["id"]}}-{{=player["id"]}}" class="uninvite">Cancel invitation</button></td></tr>
+      {{pass}}
+    {{pass}}
+    </table>
+    <script type="text/javascript">
+    $.getJSON('get_invitable_players.json?playgroup={{=playgroup["id"]}}', function(data) {
+        invitelist[{{=playgroup["id"]}}] = data["players"];
+        jQuery('input#inviteinput-{{=playgroup["id"]}}').autocomplete({
+            source: invitelist[{{=playgroup["id"]}}],
+            close: function( event, ui ) {
+              check_invite(null, this);
+            }
+        });
+    });
+    </script>  
+
+    <h2>Add players without accounts</h2>
+    <input type="text" id="username-{{=playgroup['id']}}" class="newgroupuser"><button id="confirm-user-{{=playgroup['id']}}" class="badbutton useradd">Add</button>
+  {{pass}}
+
+</div>
+{{pass}}
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+  jQuery("input#groupname").bind("input", function () {
+    check_name("settings/check_groupname", "groupname", "confirm-group");
+  });
+  jQuery("button#confirm-group").bind("click", add_group);
+  
+  jQuery("button.joinbutton").bind("click", join_group);
+  
+  jQuery("input.newgroupuser").bind("input", check_user);
+  jQuery("button.useradd").bind("click", add_user);
+
+  jQuery("input.invite").bind("input", check_invite);
+  jQuery("button.invitebutton").bind("click", invite_player);
+  jQuery("button.uninvite").bind("click", uninvite_player); 
+  
+  jQuery("input.admincheckbox").bind("click", toggle_admin);
+  jQuery("button.merge").bind("click", merge_player);
+
+  jQuery("div.tab").bind("click", active_tab);
+  jQuery("button.merge").each(disable_merge_for_playing);
+
+
+});
+</script>

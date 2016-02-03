@@ -1,0 +1,82 @@
+div.toggle { width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: #FF3A3A;
+    float: right;
+}
+
+select#maxplayerselect {
+    width: 45px;
+}
+
+select#minplayerselect {
+    width: 45px;
+}
+
+input#datestart {
+    width: 80px;
+}
+
+input#dateend {
+    width: 80px;
+}
+
+div#playerdiv {
+    float: left;
+    margin-right: 20px;
+}
+div#deckdiv {
+}
+div.playerdoughnut {
+    border-radius: 4px;
+    margin: 5px;
+    float: left;
+    background-color: #E0E0E0;
+}
+div.deckdoughnut {
+    border-radius: 4px;
+    margin: 5px;
+    float: left;
+    background-color: #E0E0E0;
+}
+div#playerprints:after { 
+    content: " ";
+    display: block; 
+    height: 0; 
+    clear: both;
+}
+div#deckprints:after { 
+    content: " ";
+    display: block; 
+    height: 0; 
+    clear: both;
+}
+
+div.mathcup {
+    background-color: #CCCCCC;
+    border-radius: 4px;
+    margin: 5px;
+    float: left;
+}
+
+div.matchups-div:after { 
+    content: " ";
+    display: block; 
+    height: 0; 
+    clear: both;
+}
+
+div.matchup:after { 
+    content: " ";
+    display: block; 
+    height: 0; 
+    clear: both;
+}
+
+div.float {
+    float: left;
+}
+
+div.matchups {
+    width: 420px;
+}

@@ -1,0 +1,369 @@
+div#players {position: relative;
+  width: 99%;
+  height: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;}
+
+div#buttons {
+  width: 300px;
+}
+
+div#message {
+  font-size: 24px;
+  float: right;
+}
+
+div.bootbox {
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin: 0px;
+}
+
+div.player-game {position: absolute;
+  background-color: #DDDDDD;
+  width: 160px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: medium solid #cccccc;}
+
+div.lost { background: #ee9999}
+
+div.won { background: #99ee99}
+
+p.playername {position: absolute;
+  float: left;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 40px;
+  color: #888888;
+  top: 15px;}
+
+p.countertype {position: absolute;
+  margin: 0px;
+  padding: 0px;
+  top: -5px;
+  left: 75px;}
+
+input.deckname {position: absolute;
+  opacity: 0.7;
+  top: 5px;
+  left: 4px;
+  width: 90%;}
+
+p.playername-2-headed {position: absolute;
+  float: left;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 40px;
+  color: #888888;
+  top: 50px;
+  left: 5px;}
+
+p.playername-2-headed-large {
+  top: 60px;
+}
+
+input.deckname-2-headed {position: absolute;
+  opacity: 0.7;
+  top: 35px;
+  left: 4px;
+  width: 90%;}
+
+input.deckname-2-headed-large {
+  top: 50px;
+}
+
+div.dmg-outer {position: absolute;
+  bottom: 3px;
+  left: 0px;
+  height: 40px;
+  width: 98%;}
+
+div.dmgtype {position: absolute;
+  bottom: 0px;
+  left: 65px;
+  width: 30px;
+  height: 30px;
+  font-size: 32px;
+  line-height: 30px;
+  text-align: center;}
+
+div.dmgtype-large {position: absolute;
+  bottom: 10px;
+  left: 130px;
+  width: 15px;
+  height: 15px;
+  font-size: 48px;
+  line-height: 15px;
+  text-align: center;}
+
+button.plus1 {position: absolute;
+  opacity: 0.6;
+  bottom: 2px;
+  right: 30px;
+  height: 30px;
+  width: 30px}
+
+button.plus1-large {position: absolute;
+  opacity: 0.6;
+  bottom: 2px;
+  right: 60px;
+  height: 50px;
+  width: 50px}
+
+button.plus5 {position: absolute;
+  opacity: 0.6;
+  bottom: 2px;
+  right: 0px;
+  height: 30px;
+  width: 30px;}
+
+button.plus5-large {position: absolute;
+  opacity: 0.6;
+  bottom: 2px;
+  right: 5px;
+  height: 50px;
+  width: 50px;}
+
+button.minus5 {position: absolute;
+  opacity: 0.6;
+  bottom: 2px;
+  left: -10px;
+  height: 30px;
+  width: 30px;}
+
+button.minus5-large {position: absolute;
+  opacity: 0.6;
+  bottom: 2px;
+  left: 5px;
+  height: 50px;
+  width: 50px;}
+
+button.minus1 {position: absolute;
+  opacity: 0.6;
+  bottom: 2px;
+  left: 20px;
+  height: 30px;
+  width: 30px;}
+
+button.minus1-large {position: absolute;
+  opacity: 0.6;
+  bottom: 2px;
+  left: 60px;
+  height: 50px;
+  width: 50px;}
+
+
+div#ig-p1Basic2p {position: absolute;
+  width: 300px;
+  height: 150px;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+
+div#ig-p2Basic2p {position: absolute;
+  width: 300px;
+  height: 150px;
+  top: 240px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+
+div#ig-p1Basic3p {position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+div#ig-p2Basic3p {position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+div#ig-p3Basic3p {position: absolute;
+  top: 250px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+
+div#ig-p1Basic4p {position: absolute;
+  top: 50px;
+  left: 0px;}
+div#ig-p2Basic4p {position: absolute;
+  top: 50px;
+  right: 0px;}
+div#ig-p3Basic4p {position: absolute;
+  top: 300px;
+  left: 0px;}
+div#ig-p4Basic4p {position: absolute;
+  top: 300px;
+  right: 0px;}
+
+div#ig-p1Basic5p {position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+div#ig-p2Basic5p {position: absolute;
+  top: 150px;
+  left: 0px;}
+div#ig-p3Basic5p {position: absolute;
+  top: 150px;
+  right: 0px;}
+div#ig-p4Basic5p {position: absolute;
+  top: 250px;
+  left: 0px;}
+div#ig-p5Basic5p {position: absolute;
+  top: 250px;
+  right: 0px;}
+
+div#ig-p1Basic6p {position: absolute;
+  top: 50px;
+  left: 0px;}
+div#ig-p2Basic6p {position: absolute;
+  top: 50px;
+  right: 0px;}
+div#ig-p3Basic6p {position: absolute;
+  top: 150px;
+  left: 0px;}
+div#ig-p4Basic6p {position: absolute;
+  top: 150px;
+  right: 0px;}
+div#ig-p5Basic6p {position: absolute;
+  top: 250px;
+  left: 0px;}
+div#ig-p6Basic6p {position: absolute;
+  top: 250px;
+  right: 0px;}
+
+div#ig-p12-headed4p {position: absolute;
+  top: 50px;
+  left: 50%;
+  width: 300px;
+  height: 150px;
+  transform: translate(-50%, 0);}
+div#ig-p32-headed4p {position: absolute;
+  top: 240px;
+  left: 50%;
+  width: 300px;
+  height: 150px;
+  transform: translate(-50%, 0);}
+
+
+div#ig-p12-headed6p {position: absolute;
+  top: 50px;
+  left: 50%;
+  height: 100px;
+  transform: translate(-50%, 0);}
+div#ig-p32-headed6p {position: absolute;
+  top: 250px;
+  left: 0px;
+  height: 100px;}
+div#ig-p52-headed6p {position: absolute;
+  top: 250px;
+  right: 0px;
+  height: 100px;}
+
+
+div#ig-p1Star5p {position: absolute;
+  top: 50px;
+  left: 130px;}
+div#ig-p2Star5p {position: absolute;
+  top: 150px;
+  left: 0px;}
+div#ig-p3Star5p {position: absolute;
+  top: 150px;
+  right: 0px;}
+div#ig-p4Star5p {position: absolute;
+  top: 250px;
+  left: 0px;}
+div#ig-p5Star5p {position: absolute;
+  top: 250px;
+  right: 0px;}
+
+div#ig-p1Emperor6p {position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+div#ig-p2Emperor6p {position: absolute;
+  top: 130px;
+  left: 0px;}
+div#ig-p3Emperor6p {position: absolute;
+  top: 130px;
+  right: 0px;}
+div#ig-p4Emperor6p {position: absolute;
+  top: 250px;
+  left: 0px;}
+div#ig-p5Emperor6p {position: absolute;
+  top: 250px;
+  right: 0px;}
+div#ig-p6Emperor6p {position: absolute;
+  top: 330px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+
+
+div#ig-p1Archenemy3p {position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+div#ig-p2Archenemy3p {position: absolute;
+  top: 250px;
+  left: 0px;}
+div#ig-p3Archenemy3p {position: absolute;
+  top: 250px;
+  right: 0px;}
+
+div#ig-p1Archenemy4p {position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+div#ig-p2Archenemy4p {position: absolute;
+  top: 250px;
+  left: 0px;}
+div#ig-p3Archenemy4p {position: absolute;
+  top: 250px;
+  right: 0px;}
+div#ig-p4Archenemy4p {position: absolute;
+  top: 330px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+
+div#ig-p1Archenemy5p {position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+div#ig-p2Archenemy5p {position: absolute;
+  top: 250px;
+  left: 0px;}
+div#ig-p3Archenemy5p {position: absolute;
+  top: 250px;
+  right: 0px;}
+div#ig-p4Archenemy5p {position: absolute;
+  top: 330px;
+  left: 0px;}
+div#ig-p5Archenemy5p {position: absolute;
+  top: 330px;
+  right: 0px;}
+
+div#ig-p1Archenemy6p {position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);}
+div#ig-p2Archenemy6p {position: absolute;
+  top: 160px;
+  left: 0px;}
+div#ig-p3Archenemy6p {position: absolute;
+  top: 160px;
+  right: 0px;}
+div#ig-p4Archenemy6p {position: absolute;
+  top: 250px;
+  left: 0px;}
+div#ig-p5Archenemy6p {position: absolute;
+  top: 250px;
+  right: 0px;}
+div#ig-p6Archenemy6p {position: absolute;
+  top: 330px;
+  left: 50%;
+  transform: translate(-50%, 0);}
